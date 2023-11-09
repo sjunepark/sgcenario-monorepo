@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.prose input {
+		font-size: inherit;
+		line-height: inherit;
+		@apply break-words;
+	}
+}
+
+@layer components {
+	[contenteditable='true']:empty::before {
+		content: attr(data-placeholder);
+		@apply inline-block text-gray-400;
+	}
+}
+
+@layer utilities {
+	.global-container {
+		@apply container mx-auto px-4 md:px-8 lg:px-12;
+	}
+}
