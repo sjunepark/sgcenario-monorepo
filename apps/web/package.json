@@ -61,7 +61,6 @@
 		"tailwind-merge": "^1.14.0",
 		"tailwind-variants": "^0.1.18",
 		"tailwindcss": "^3.3.5",
-		"tsconfig": "workspace:*",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
 		"vite": "^4.5.0",
