@@ -1,5 +1,6 @@
 {
 	"$schema": "https://turbo.build/schema.json",
+	"globalEnv": ["NEON_DB_URL"],
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
