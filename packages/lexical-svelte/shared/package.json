@@ -1,6 +1,10 @@
 {
-  "name": "@lexical-svelte/shared",
-  "private": true,
-  "main": "src/index.ts",
-  "types": "src/index.ts"
+	"name": "@lexical-svelte/shared",
+	"private": true,
+	"type": "module",
+	"main": "src/index.ts",
+	"types": "src/index.ts",
+	"dependencies": {
+		"typescript": "^5.2.2"
+	}
 }

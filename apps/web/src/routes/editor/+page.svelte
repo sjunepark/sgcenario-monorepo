@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { type InitialConfigType, LexicalComposer } from '@lexical-svelte/core';
+	import {
+		ContentEditable,
+		type InitialConfigType,
+		LexicalComposer,
+		PlainTextPlugin
+	} from '@lexical-svelte/core';
 	import { createSettingsStore, setSettingsStore } from '$lib/lexical/settings';
 
 	const initialConfig: InitialConfigType = {
@@ -12,4 +17,8 @@
 	setSettingsStore(createSettingsStore());
 </script>
 
-<LexicalComposer {initialConfig} />
+<LexicalComposer {initialConfig}>
+	<PlainTextPlugin>
+		<ContentEditable slot="contentEditable" />
+	</PlainTextPlugin>
+</LexicalComposer>

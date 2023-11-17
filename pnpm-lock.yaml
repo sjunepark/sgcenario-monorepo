@@ -182,6 +182,15 @@ importers:
       '@lexical-svelte/shared':
         specifier: workspace:*
         version: link:../shared
+      '@lexical/dragon':
+        specifier: ^0.12.2
+        version: 0.12.2(lexical@0.12.2)
+      '@lexical/plain-text':
+        specifier: ^0.12.2
+        version: 0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2)
+      '@lexical/utils':
+        specifier: ^0.12.2
+        version: 0.12.2(lexical@0.12.2)
       lexical:
         specifier: ^0.12.2
         version: 0.12.2
@@ -275,7 +284,11 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
 
-  packages/lexical-svelte/shared: {}
+  packages/lexical-svelte/shared:
+    dependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
 
 packages:
 
@@ -964,7 +977,14 @@ packages:
       '@lexical/selection': 0.12.2(lexical@0.12.2)
       '@lexical/utils': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
+
+  /@lexical/dragon@0.12.2(lexical@0.12.2):
+    resolution: {integrity: sha512-Mt8NLzTOt+VgQtc2DKDbHBwKeRlvKqbLqRIMYUVk60gol+YV7NpVBsP1PAMuYYjrTQLhlckBSC32H1SUHZRavA==}
+    peerDependencies:
+      lexical: 0.12.2
+    dependencies:
+      lexical: 0.12.2
+    dev: false
 
   /@lexical/html@0.12.2(lexical@0.12.2):
     resolution: {integrity: sha512-LWUO6OKhDtDZa9X1spHAqzsp+4EF01exis4cz5H9y2sHi7EofogXnRCadZ+fa07NVwPVTZWsStkk5qdSe/NEzg==}
@@ -973,7 +993,6 @@ packages:
     dependencies:
       '@lexical/selection': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
 
   /@lexical/list@0.12.2(lexical@0.12.2):
     resolution: {integrity: sha512-3CyWtYQC+IlK4cK/oiD8Uz1gSXD8UcKGOF2vVsDXkMU06O6zvHNmHZOnVJqA0JVNgZAoR9dMR1fi2xd4iuCAiw==}
@@ -982,7 +1001,6 @@ packages:
     dependencies:
       '@lexical/utils': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
 
   /@lexical/plain-text@0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2):
     resolution: {integrity: sha512-Lcg6+ngRnX70//kz34azYhID3bvW66HSHCfu5UPhCXT+vQ/Jkd/InhRKajBwWXpaJxMM1huoi3sjzVDb3luNtw==}
@@ -996,7 +1014,6 @@ packages:
       '@lexical/selection': 0.12.2(lexical@0.12.2)
       '@lexical/utils': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
 
   /@lexical/rich-text@0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2):
     resolution: {integrity: sha512-igsEuv7CwBOAj5c8jeE41cnx6zkhI/Bkbu4W7shT6S6lNA/3cnyZpAMlgixwyK5RoqjGRCT+IJK5l6yBxQfNkw==}
@@ -1018,7 +1035,6 @@ packages:
       lexical: 0.12.2
     dependencies:
       lexical: 0.12.2
-    dev: true
 
   /@lexical/table@0.12.2(lexical@0.12.2):
     resolution: {integrity: sha512-tiAmTq6RKHDVER9v589Ajm9/RL+WTF1WschrH6HHVCtil6cfJfTJeJ+MF45+XEzB9fkqy2LfrScAfWxqLjVePA==}
@@ -1027,7 +1043,6 @@ packages:
     dependencies:
       '@lexical/utils': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
 
   /@lexical/utils@0.12.2(lexical@0.12.2):
     resolution: {integrity: sha512-xW4y4l2Yd37+qLwkBvBGyzsKCA9wnh1ljphBJeR2vreT193i2gaIwuku2ZKlER14VHw4192qNJF7vUoAEmwurQ==}
@@ -1038,7 +1053,6 @@ packages:
       '@lexical/selection': 0.12.2(lexical@0.12.2)
       '@lexical/table': 0.12.2(lexical@0.12.2)
       lexical: 0.12.2
-    dev: true
 
   /@lucia-auth/adapter-postgresql@2.0.2(lucia@2.7.4)(postgres@3.4.3):
     resolution: {integrity: sha512-gQ7SlFu+gxQj2IX2J8ZVivcLBbdnf9SbNQOVWkJxZOdY1uaaIQGeNfEDld2Awy02VrXmA4sjHsbkJx1JPVw2+A==}
