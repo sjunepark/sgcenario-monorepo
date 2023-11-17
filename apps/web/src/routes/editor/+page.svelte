@@ -1,5 +1,15 @@
 <script lang="ts">
-	import { LexicalComposer } from '@lexical-svelte/core';
+	import { type InitialConfigType, LexicalComposer } from '@lexical-svelte/core';
+	import { createSettingsStore, setSettingsStore } from '$lib/lexical/settings';
+
+	const initialConfig: InitialConfigType = {
+		namespace: 'sgcenario',
+		onError: (error) => {
+			console.error(error);
+		}
+	};
+
+	setSettingsStore(createSettingsStore());
 </script>
 
-<LexicalComposer />
+<LexicalComposer {initialConfig} />
