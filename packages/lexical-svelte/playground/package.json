@@ -1,5 +1,5 @@
 {
-  "name": "@lexical-svelte/core",
+  "name": "@lexical-svelte/playground",
   "version": "0.0.1",
   "description": "This package provides Lexical components for Svelte applications.",
   "keywords": [

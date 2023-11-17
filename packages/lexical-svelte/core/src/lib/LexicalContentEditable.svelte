@@ -1,19 +1,4 @@
 <script lang="ts">
-	// type Props = {
-	// 	ariaActiveDescendant?: React.AriaAttributes['aria-activedescendant'];
-	// 	ariaAutoComplete?: React.AriaAttributes['aria-autocomplete'];
-	// 	ariaControls?: React.AriaAttributes['aria-controls'];
-	// 	ariaDescribedBy?: React.AriaAttributes['aria-describedby'];
-	// 	ariaExpanded?: React.AriaAttributes['aria-expanded'];
-	// 	ariaLabel?: React.AriaAttributes['aria-label'];
-	// 	ariaLabelledBy?: React.AriaAttributes['aria-labelledby'];
-	// 	ariaMultiline?: React.AriaAttributes['aria-multiline'];
-	// 	ariaOwns?: React.AriaAttributes['aria-owns'];
-	// 	ariaRequired?: React.AriaAttributes['aria-required'];
-	// 	autoCapitalize?: HTMLDivElement['autocapitalize'];
-	// 	'data-testid'?: string | null | undefined;
-	// } & React.AllHTMLAttributes<HTMLDivElement>;
-
 	import type { AriaAttributes } from 'svelte/elements';
 	import { getLexicalComposerContext } from '$lib/LexicalComposerContext';
 	import { onDestroy, onMount } from 'svelte';

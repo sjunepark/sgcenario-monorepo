@@ -5,7 +5,12 @@
 		{
 			"label": "Use workspace protocol when developing local packages",
 			"packages": ["**"],
-			"dependencies": ["@lexical-svelte/core", "@lexical-svelte/shared", "eslint-config-custom"],
+			"dependencies": [
+				"@lexical-svelte/core",
+				"@lexical-svelte/playground",
+				"@lexical-svelte/shared",
+				"eslint-config-custom"
+			],
 			"dependencyTypes": ["!local"],
 			"pinVersion": "workspace:*"
 		}
@@ -13,7 +18,12 @@
 	"semverGroups": [
 		{
 			"packages": ["**"],
-			"dependencies": ["@lexical-svelte/core", "@lexical-svelte/shared", "eslint-config-custom"],
+			"dependencies": [
+				"@lexical-svelte/core",
+				"@lexical-svelte/playground",
+				"@lexical-svelte/shared",
+				"eslint-config-custom"
+			],
 			"isIgnored": true
 		},
 		{
