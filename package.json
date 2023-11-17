@@ -3,6 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=sgcenario",
     "format": "prettier --plugin-search-dir . --write .",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "check": "turbo run check",

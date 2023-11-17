@@ -28,6 +28,7 @@
     "@floating-ui/dom": "^1.5.3",
     "@lexical/plain-text": "^0.12.2",
     "@lexical/rich-text": "^0.12.2",
+    "@lexical-svelte/core": "workspace:*",
     "@lucia-auth/adapter-postgresql": "^2.0.2",
     "@lucia-auth/oauth": "^3.5.0",
     "@melt-ui/svelte": "^0.61.2",

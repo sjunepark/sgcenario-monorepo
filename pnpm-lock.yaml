@@ -9,25 +9,25 @@ importers:
   .:
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
-        specifier: 3.0.0
+        specifier: ^3.0.0
         version: 3.0.0(svelte@4.2.4)(vite@4.5.0)
       eslint:
-        specifier: 8.53.0
+        specifier: ^8.53.0
         version: 8.53.0
       eslint-config-custom:
         specifier: workspace:*
         version: link:configurations/eslint-config-custom
       prettier:
-        specifier: 3.1.0
+        specifier: ^3.1.0
         version: 3.1.0
       prettier-plugin-svelte:
-        specifier: 3.1.0
+        specifier: ^3.1.0
         version: 3.1.0(prettier@3.1.0)(svelte@4.2.4)
       syncpack:
-        specifier: 11.2.1
+        specifier: ^11.2.1
         version: 11.2.1
       turbo:
-        specifier: 1.10.16
+        specifier: ^1.10.16
         version: 1.10.16
       vite:
         specifier: ^4.0.0
@@ -36,124 +36,127 @@ importers:
   apps/web:
     devDependencies:
       '@floating-ui/dom':
-        specifier: 1.5.3
+        specifier: ^1.5.3
         version: 1.5.3
+      '@lexical-svelte/core':
+        specifier: workspace:*
+        version: link:../../packages/lexical-svelte/core
       '@lexical/plain-text':
-        specifier: 0.12.2
+        specifier: ^0.12.2
         version: 0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2)
       '@lexical/rich-text':
-        specifier: 0.12.2
+        specifier: ^0.12.2
         version: 0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2)
       '@lucia-auth/adapter-postgresql':
-        specifier: 2.0.2
+        specifier: ^2.0.2
         version: 2.0.2(lucia@2.7.4)(postgres@3.4.3)
       '@lucia-auth/oauth':
-        specifier: 3.5.0
+        specifier: ^3.5.0
         version: 3.5.0(lucia@2.7.4)
       '@melt-ui/svelte':
-        specifier: 0.61.2
+        specifier: ^0.61.2
         version: 0.61.2(svelte@4.2.4)
       '@neondatabase/serverless':
-        specifier: 0.6.0
+        specifier: ^0.6.0
         version: 0.6.0
       '@sveltejs/adapter-auto':
-        specifier: 2.1.1
+        specifier: ^2.1.1
         version: 2.1.1(@sveltejs/kit@1.27.6)
       '@sveltejs/kit':
-        specifier: 1.27.6
+        specifier: ^1.27.6
         version: 1.27.6(svelte@4.2.4)(vite@4.5.0)
       '@tailwindcss/forms':
-        specifier: 0.5.7
+        specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.3.5)
       '@tailwindcss/typography':
-        specifier: 0.5.10
+        specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.3.5)
       '@types/node':
-        specifier: 20.9.1
+        specifier: ^20.9.1
         version: 20.9.1
       '@types/pg':
-        specifier: 8.10.9
+        specifier: ^8.10.9
         version: 8.10.9
       '@types/ws':
-        specifier: 8.5.9
+        specifier: ^8.5.9
         version: 8.5.9
       autoprefixer:
-        specifier: 10.4.16
+        specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.31)
       clsx:
-        specifier: 2.0.0
+        specifier: ^2.0.0
         version: 2.0.0
       dotenv:
-        specifier: 16.3.1
+        specifier: ^16.3.1
         version: 16.3.1
       drizzle-kit:
-        specifier: 0.20.2
+        specifier: ^0.20.2
         version: 0.20.2
       drizzle-orm:
-        specifier: 0.29.0
+        specifier: ^0.29.0
         version: 0.29.0(@neondatabase/serverless@0.6.0)(@types/pg@8.10.9)(postgres@3.4.3)
       eslint-config-custom:
         specifier: workspace:*
         version: link:../../configurations/eslint-config-custom
       hangul-js:
-        specifier: 0.2.6
+        specifier: ^0.2.6
         version: 0.2.6
       lexical:
-        specifier: 0.12.2
+        specifier: ^0.12.2
         version: 0.12.2
       lucia:
-        specifier: 2.7.4
+        specifier: ^2.7.4
         version: 2.7.4
       lucide-svelte:
-        specifier: 0.292.0
+        specifier: ^0.292.0
         version: 0.292.0(svelte@4.2.4)
       nanoid:
-        specifier: 5.0.3
+        specifier: ^5.0.3
         version: 5.0.3
       overlayscrollbars:
-        specifier: 2.4.4
+        specifier: ^2.4.4
         version: 2.4.4
       overlayscrollbars-svelte:
-        specifier: 0.5.2
+        specifier: ^0.5.2
         version: 0.5.2(overlayscrollbars@2.4.4)(svelte@4.2.4)
       pino:
-        specifier: 8.16.2
+        specifier: ^8.16.2
         version: 8.16.2
       postcss:
-        specifier: 8.4.31
+        specifier: ^8.4.31
         version: 8.4.31
       postgres:
-        specifier: 3.4.3
+        specifier: ^3.4.3
         version: 3.4.3
       svelte:
-        specifier: 4.2.4
+        specifier: ^4.2.4
         version: 4.2.4
       svelte-check:
-        specifier: 3.6.0
+        specifier: ^3.6.0
         version: 3.6.0(postcss@8.4.31)(svelte@4.2.4)
       svelte-floating-ui:
-        specifier: 1.5.6
+        specifier: ^1.5.6
         version: 1.5.6
       tailwind-merge:
-        specifier: 2.0.0
+        specifier: ^2.0.0
         version: 2.0.0
       tailwind-variants:
-        specifier: 0.1.18
+        specifier: ^0.1.18
         version: 0.1.18(tailwindcss@3.3.5)
       tailwindcss:
-        specifier: 3.3.5
+        specifier: ^3.3.5
         version: 3.3.5
       tslib:
-        specifier: 2.6.2
+        specifier: ^2.6.2
         version: 2.6.2
       typescript:
-        specifier: 5.2.2
+        specifier: ^5.2.2
         version: 5.2.2
       vite:
         specifier: ^4.0.0
         version: 4.5.0(@types/node@20.9.1)
       ws:
-        specifier: 8.14.2
+        specifier: ^8.14.2
         version: 8.14.2
 
   configurations/eslint-config-custom:
@@ -184,101 +187,43 @@ importers:
         version: 0.12.2
     devDependencies:
       '@sveltejs/adapter-auto':
-        specifier: 2.1.1
+        specifier: ^2.1.1
         version: 2.1.1(@sveltejs/kit@1.27.6)
       '@sveltejs/kit':
-        specifier: 1.27.6
+        specifier: ^1.27.6
         version: 1.27.6(svelte@4.2.4)(vite@4.5.0)
       '@sveltejs/package':
-        specifier: 2.2.2
+        specifier: ^2.2.2
         version: 2.2.2(svelte@4.2.4)(typescript@5.2.2)
       '@testing-library/jest-dom':
-        specifier: 6.1.4
+        specifier: ^6.1.4
         version: 6.1.4(vitest@0.34.6)
       '@testing-library/svelte':
-        specifier: 4.0.5
+        specifier: ^4.0.5
         version: 4.0.5(svelte@4.2.4)
       jsdom:
-        specifier: 22.1.0
+        specifier: ^22.1.0
         version: 22.1.0
       publint:
-        specifier: 0.2.5
+        specifier: ^0.2.5
         version: 0.2.5
       svelte:
-        specifier: 4.2.4
+        specifier: ^4.2.4
         version: 4.2.4
       svelte-check:
-        specifier: 3.6.0
+        specifier: ^3.6.0
         version: 3.6.0(postcss@8.4.31)(svelte@4.2.4)
       tslib:
-        specifier: 2.6.2
+        specifier: ^2.6.2
         version: 2.6.2
       typescript:
-        specifier: 5.2.2
+        specifier: ^5.2.2
         version: 5.2.2
       vite:
         specifier: ^4.0.0
         version: 4.5.0(@types/node@20.9.1)
       vitest:
-        specifier: 0.34.6
-        version: 0.34.6(jsdom@22.1.0)
-
-  packages/lexical-svelte/playground:
-    dependencies:
-      '@lexical-svelte/shared':
-        specifier: workspace:*
-        version: link:../shared
-      lexical:
-        specifier: ^0.12.2
-        version: 0.12.2
-    devDependencies:
-      '@lexical/link':
-        specifier: 0.12.2
-        version: 0.12.2(lexical@0.12.2)
-      '@lexical/list':
-        specifier: 0.12.2
-        version: 0.12.2(lexical@0.12.2)
-      '@lexical/rich-text':
-        specifier: 0.12.2
-        version: 0.12.2(@lexical/clipboard@0.12.2)(@lexical/selection@0.12.2)(@lexical/utils@0.12.2)(lexical@0.12.2)
-      '@sveltejs/adapter-auto':
-        specifier: 2.1.1
-        version: 2.1.1(@sveltejs/kit@1.27.6)
-      '@sveltejs/kit':
-        specifier: 1.27.6
-        version: 1.27.6(svelte@4.2.4)(vite@4.5.0)
-      '@sveltejs/package':
-        specifier: 2.2.2
-        version: 2.2.2(svelte@4.2.4)(typescript@5.2.2)
-      '@testing-library/jest-dom':
-        specifier: 6.1.4
-        version: 6.1.4(vitest@0.34.6)
-      '@testing-library/svelte':
-        specifier: 4.0.5
-        version: 4.0.5(svelte@4.2.4)
-      jsdom:
-        specifier: 22.1.0
-        version: 22.1.0
-      publint:
-        specifier: 0.2.5
-        version: 0.2.5
-      svelte:
-        specifier: 4.2.4
-        version: 4.2.4
-      svelte-check:
-        specifier: 3.6.0
-        version: 3.6.0(postcss@8.4.31)(svelte@4.2.4)
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: 5.2.2
-        version: 5.2.2
-      vite:
-        specifier: ^4.0.0
-        version: 4.5.0(@types/node@20.9.1)
-      vitest:
-        specifier: 0.34.6
+        specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
 
   packages/lexical-svelte/shared: {}
@@ -981,15 +926,6 @@ packages:
       lexical: 0.12.2
     dev: true
 
-  /@lexical/link@0.12.2(lexical@0.12.2):
-    resolution: {integrity: sha512-etOIONa7uyRDmwg8GN52kDlf8thD2Zk1LOFLeocHWz1V8fe3i2unGUek5s/rNPkc6ynpPpNsHdN1VEghOLCCmw==}
-    peerDependencies:
-      lexical: 0.12.2
-    dependencies:
-      '@lexical/utils': 0.12.2(lexical@0.12.2)
-      lexical: 0.12.2
-    dev: true
-
   /@lexical/list@0.12.2(lexical@0.12.2):
     resolution: {integrity: sha512-3CyWtYQC+IlK4cK/oiD8Uz1gSXD8UcKGOF2vVsDXkMU06O6zvHNmHZOnVJqA0JVNgZAoR9dMR1fi2xd4iuCAiw==}
     peerDependencies:
@@ -1226,7 +1162,7 @@ packages:
       svelte: 4.2.4
       svelte-hmr: 0.15.3(svelte@4.2.4)
       vite: 4.5.0(@types/node@20.9.1)
-      vitefu: 0.2.4(vite@4.5.0)
+      vitefu: 0.2.5(vite@4.5.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2543,14 +2479,6 @@ packages:
       eslint: 8.53.0
     dev: false
 
-  /eslint-scope@7.1.1:
-    resolution: {integrity: sha512-QKQM/UXpIiHcLqJ5AOyIW7XZmzjkzQXYE54n1++wb0u9V/abW3l9uQnxX8Z5Xd18xyKIMTUAyQ0k1e8pz6LUrw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      esrecurse: 4.3.0
-      estraverse: 5.3.0
-    dev: false
-
   /eslint-scope@7.2.2:
     resolution: {integrity: sha512-dOt21O7lTMhDM+X9mB4GX+DZrZtCUJPL/wlcTqxyrx5IvO0IYtILdtrQGQp+8n5S0gwSVmOf9NQrjMOgfQZlIg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2611,15 +2539,6 @@ packages:
   /esm-env@1.0.0:
     resolution: {integrity: sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA==}
     dev: true
-
-  /espree@9.5.1:
-    resolution: {integrity: sha512-5yxtHSZXRSW5pvv3hAlXM5+/Oswi1AUFqBmbibKb5s6bp3rGIDkyXU6xCoyuuLhijr4SFwPrXRoZjz0AZDN9tg==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      acorn: 8.10.0
-      acorn-jsx: 5.3.2(acorn@8.10.0)
-      eslint-visitor-keys: 3.4.3
-    dev: false
 
   /espree@9.6.1:
     resolution: {integrity: sha512-oruZaFkjorTpF32kDSI5/75ViwGeZginGGy2NoOSg3Q9bnwlnmDm4HLnkl0RE3n+njDXR037aY1+x58Z/zFdwQ==}
@@ -4673,9 +4592,9 @@ packages:
       svelte:
         optional: true
     dependencies:
-      eslint-scope: 7.1.1
+      eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
-      espree: 9.5.1
+      espree: 9.6.1
       postcss: 8.4.31
       postcss-scss: 4.0.9(postcss@8.4.31)
       svelte: 4.2.4
@@ -5159,17 +5078,6 @@ packages:
       rollup: 3.29.4
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
-
-  /vitefu@0.2.4(vite@4.5.0):
-    resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
-    peerDependencies:
-      vite: ^3.0.0 || ^4.0.0
-    peerDependenciesMeta:
-      vite:
-        optional: true
-    dependencies:
-      vite: 4.5.0(@types/node@20.9.1)
     dev: true
 
   /vitefu@0.2.5(vite@4.5.0):
