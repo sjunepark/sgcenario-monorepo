@@ -1,0 +1,32 @@
+{
+  "$schema": "https://unpkg.com/syncpack@11.2.1/dist/schema.json",
+  "dependencyTypes": ["!peer"],
+  "versionGroups": [
+    {
+      "label": "Use workspace protocol when developing local packages",
+      "packages": ["**"],
+      "dependencies": ["@lexical-svelte/core", "@lexical-svelte/shared", "eslint-config-custom"],
+      "dependencyTypes": ["!local"],
+      "pinVersion": "workspace:*"
+    }
+  ],
+  "semverGroups": [
+    {
+      "packages": ["**"],
+      "dependencies": ["@lexical-svelte/core", "@lexical-svelte/shared", "eslint-config-custom"],
+      "isIgnored": true
+    },
+    {
+      "range": "",
+      "dependencyTypes": ["prod", "resolutions", "overrides", "pnpmOverrides", "local"],
+      "dependencies": ["**"],
+      "packages": ["**"]
+    },
+    {
+      "range": "^",
+      "dependencyTypes": ["dev", "peer"],
+      "dependencies": ["**"],
+      "packages": ["**"]
+    }
+  ]
+}
