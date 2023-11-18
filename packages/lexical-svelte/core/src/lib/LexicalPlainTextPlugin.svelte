@@ -3,9 +3,17 @@
 	import { mergeRegister } from '@lexical/utils';
 	import { registerPlainText } from '@lexical/plain-text';
 	import { registerDragonSupport } from '@lexical/dragon';
+	import { onDestroy, onMount } from 'svelte';
 
 	const [editor] = getLexicalComposerContext();
-	$: mergeRegister(registerPlainText(editor), registerDragonSupport(editor));
+	let cleanup: () => void = () => {};
+
+	onMount(() => {
+		cleanup = mergeRegister(registerPlainText(editor), registerDragonSupport(editor));
+	});
+	onDestroy(() => {
+		cleanup();
+	});
 </script>
 
 <slot name="contentEditable" />

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { AriaAttributes } from 'svelte/elements';
 	import { getLexicalComposerContext } from '$lib/LexicalComposerContext';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	export let ariaActiveDescendant: AriaAttributes['aria-activedescendant'] = undefined;
 	export let ariaAutoComplete: AriaAttributes['aria-autocomplete'] = undefined;
@@ -22,12 +22,12 @@
 	let isEditable = false;
 	let cleanup: ReturnType<typeof editor.registerEditableListener> = () => {};
 
-	$: {
-		editor.isEditable();
+	onMount(() => {
+		isEditable = editor.isEditable();
 		cleanup = editor.registerEditableListener((currentIsEditable) => {
 			isEditable = currentIsEditable;
 		});
-	}
+	});
 	onDestroy(() => {
 		cleanup();
 	});

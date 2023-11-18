@@ -2,9 +2,8 @@
 	import type { InitialConfigType } from '$lib/LexicalComposer';
 	import { initializeEditor } from '$lib/LexicalComposer';
 	import {
-		type LexicalComposerContextType,
 		createLexicalComposerContext,
-		getLexicalComposerContext,
+		type LexicalComposerContextType,
 		setLexicalComposerContext
 	} from '$lib/LexicalComposerContext';
 	import { createEditor } from 'lexical';
@@ -41,8 +40,9 @@
 
 	onMount(() => {
 		const isEditable = initialConfig.editable;
-		[editor] = getLexicalComposerContext();
-		editor.setEditable(isEditable !== undefined ? isEditable : true);
+		if (editor) {
+			editor.setEditable(isEditable !== undefined ? isEditable : true);
+		}
 	});
 </script>
 

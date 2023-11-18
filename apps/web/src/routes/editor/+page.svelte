@@ -19,6 +19,6 @@
 
 <LexicalComposer {initialConfig}>
 	<PlainTextPlugin>
-		<ContentEditable slot="contentEditable" />
+		<ContentEditable slot="contentEditable" class="w-[1280px] h-[1080px] ring-1" />
 	</PlainTextPlugin>
 </LexicalComposer>

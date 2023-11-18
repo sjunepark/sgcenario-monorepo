@@ -1,8 +1,8 @@
 {
-  "name": "@lexical-svelte/shared",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
-  "dependencies": {
-    "typescript": "latest"
-  }
+	"name": "@lexical-svelte/shared",
+	"main": "src/index.ts",
+	"types": "src/index.ts",
+	"dependencies": {
+		"typescript": "latest"
+	}
 }
