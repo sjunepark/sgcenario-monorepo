@@ -3,8 +3,7 @@
 		ContentEditable,
 		type InitialConfigType,
 		LexicalComposer,
-		PlainTextPlugin,
-		TreeView
+		PlainTextPlugin
 	} from '@lexical-svelte/core';
 	import { createSettingsStore, setSettingsStore } from '$lib/lexical/settings';
 	import { TreeViewPlugin } from '@lexical-svelte/playground';

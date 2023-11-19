@@ -22,16 +22,20 @@ async function compileSvelte() {
 		const tsConfig = ts.readConfigFile('../tsconfig.json', ts.sys.readFile);
 
 		// Preprocess with TypeScript support and tsconfig options
-		const preprocessed = await preprocess(component, sveltePreprocess({
-			typescript: {
-				// Pass the tsconfig compilerOptions here
-				compilerOptions: tsConfig.config.compilerOptions,
-			}
-		}), { filename: absoluteInput });
+		const preprocessed = await preprocess(
+			component,
+			sveltePreprocess({
+				typescript: {
+					// Pass the tsconfig compilerOptions here
+					compilerOptions: tsConfig.config.compilerOptions
+				}
+			}),
+			{ filename: absoluteInput }
+		);
 
 		// Compile the preprocessed component
 		const compiled = compile(preprocessed.code, {
-			filename: absoluteInput,
+			filename: absoluteInput
 			// Other compile options as needed
 		});
 

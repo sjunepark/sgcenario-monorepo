@@ -130,7 +130,7 @@
 		}
 	}
 
-	let resetLexicalEditor = () => {};
+	let resetLexicalEditor: (() => void) | undefined;
 	$: {
 		if (resetLexicalEditor) {
 			resetLexicalEditor();
@@ -139,11 +139,11 @@
 			const element = treeElementRef;
 
 			if (element !== null) {
-				// @ts-ignore Internal field
+				// @ts-expect-error Internal field
 				element.__lexicalEditor = editor;
 
 				return () => {
-					// @ts-ignore Internal field
+					// @ts-expect-error Internal field
 					element.__lexicalEditor = null;
 				};
 			}
