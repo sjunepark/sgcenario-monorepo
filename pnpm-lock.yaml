@@ -46,7 +46,7 @@ importers:
         version: link:../../packages/lexical-svelte/playground
       '@lexical-svelte/shared':
         specifier: workspace:*
-        version: link:../../packages/lexical-svelte/math
+        version: link:../../packages/lexical-svelte/shared
       '@lexical/plain-text':
         specifier: ^0.12.4
         version: 0.12.4(@lexical/clipboard@0.12.4)(@lexical/selection@0.12.4)(@lexical/utils@0.12.4)(lexical@0.12.4)
@@ -209,7 +209,7 @@ importers:
     devDependencies:
       '@lexical-svelte/shared':
         specifier: workspace:*
-        version: link:../math
+        version: link:../shared
       '@sveltejs/adapter-auto':
         specifier: ^2.1.1
         version: 2.1.1(@sveltejs/kit@1.27.6)
@@ -256,12 +256,6 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
 
-  packages/lexical-svelte/math:
-    dependencies:
-      typescript:
-        specifier: latest
-        version: 5.2.2
-
   packages/lexical-svelte/playground:
     dependencies:
       '@lexical-svelte/core':
@@ -273,7 +267,7 @@ importers:
     devDependencies:
       '@lexical-svelte/shared':
         specifier: workspace:*
-        version: link:../math
+        version: link:../shared
       '@sveltejs/adapter-auto':
         specifier: ^2.1.1
         version: 2.1.1(@sveltejs/kit@1.27.6)
@@ -313,6 +307,12 @@ importers:
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
+
+  packages/lexical-svelte/shared:
+    dependencies:
+      typescript:
+        specifier: latest
+        version: 5.2.2
 
 packages:
 
