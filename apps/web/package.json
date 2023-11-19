@@ -29,6 +29,7 @@
 		"@lexical/plain-text": "^0.12.4",
 		"@lexical/rich-text": "^0.12.4",
 		"@lexical-svelte/core": "workspace:*",
+		"@lexical-svelte/playground": "workspace:*",
 		"@lexical-svelte/shared": "workspace:*",
 		"@lucia-auth/adapter-postgresql": "^2.0.2",
 		"@lucia-auth/oauth": "^3.5.0",

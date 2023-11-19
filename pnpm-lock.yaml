@@ -41,6 +41,9 @@ importers:
       '@lexical-svelte/core':
         specifier: workspace:*
         version: link:../../packages/lexical-svelte/core
+      '@lexical-svelte/playground':
+        specifier: workspace:*
+        version: link:../../packages/lexical-svelte/playground
       '@lexical-svelte/shared':
         specifier: workspace:*
         version: link:../../packages/lexical-svelte/math
@@ -261,6 +264,9 @@ importers:
 
   packages/lexical-svelte/playground:
     dependencies:
+      '@lexical-svelte/core':
+        specifier: workspace:*
+        version: link:../core
       lexical:
         specifier: ^0.12.4
         version: 0.12.4

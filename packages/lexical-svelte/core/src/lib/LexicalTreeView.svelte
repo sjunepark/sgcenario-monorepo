@@ -69,7 +69,7 @@
 		}
 	}
 
-	let mergedRegister: ReturnType<typeof mergeRegister>;
+	let mergedRegister = () => {};
 	$: {
 		mergedRegister();
 		mergedRegister = mergeRegister(
@@ -91,7 +91,7 @@
 
 	const totalEditorStates = timeStampedEditorStates.length;
 
-	let clearTimeoutId: () => void;
+	let clearTimeoutId = () => {};
 	$: {
 		clearTimeoutId();
 		if (isPlaying) {
@@ -130,7 +130,7 @@
 		}
 	}
 
-	let resetLexicalEditor: (() => void) | undefined;
+	let resetLexicalEditor = () => {};
 	$: {
 		if (resetLexicalEditor) {
 			resetLexicalEditor();

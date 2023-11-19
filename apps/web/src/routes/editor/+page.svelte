@@ -3,9 +3,11 @@
 		ContentEditable,
 		type InitialConfigType,
 		LexicalComposer,
-		PlainTextPlugin
+		PlainTextPlugin,
+		TreeView
 	} from '@lexical-svelte/core';
 	import { createSettingsStore, setSettingsStore } from '$lib/lexical/settings';
+	import { TreeViewPlugin } from '@lexical-svelte/playground';
 
 	const initialConfig: InitialConfigType = {
 		namespace: 'sgcenario',
@@ -19,6 +21,7 @@
 
 <LexicalComposer {initialConfig}>
 	<PlainTextPlugin>
-		<ContentEditable slot="contentEditable" class="w-[1280px] h-[1080px] ring-1" />
+		<ContentEditable slot="contentEditable" class="w-[640px] h-[480px] ring-1" />
 	</PlainTextPlugin>
+	<TreeViewPlugin />
 </LexicalComposer>

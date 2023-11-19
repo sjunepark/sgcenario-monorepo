@@ -30,6 +30,9 @@
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*"
 	],
+	"dependencies": {
+		"@lexical-svelte/core": "workspace:*"
+	},
 	"peerDependencies": {
 		"lexical": "^0.12.4",
 		"svelte": "^4.2.5"
