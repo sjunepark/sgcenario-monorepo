@@ -20,13 +20,13 @@ import {
 	$isElementNode,
 	$isRangeSelection,
 	$isTextNode,
-	DEPRECATED_$isGridSelection,
-	type LexicalCommand
+	DEPRECATED_$isGridSelection
 } from 'lexical';
 
 import { $generateHtmlFromNodes } from '@lexical/html';
 import { $isLinkNode, LinkNode } from '@lexical/link';
 import { $isMarkNode } from '@lexical/mark';
+import type { LoggedCommands } from '$lib/LexicalTreeViewStores';
 
 const NON_SINGLE_WIDTH_CHARS_REPLACEMENT: Readonly<Record<string, string>> = Object.freeze({
 	'\t': '\\t',
@@ -365,7 +365,7 @@ function _$getSelectionStartEnd(
 
 export function generateContent(
 	editor: LexicalEditor,
-	commandsLog: ReadonlyArray<LexicalCommand<unknown> & { payload: unknown }>,
+	commandsLog: LoggedCommands,
 	exportDOM: boolean
 ): string {
 	const editorState = editor.getEditorState();

@@ -3,8 +3,7 @@
 	"globalEnv": ["NEON_DB_URL"],
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
-			"outputs": [".svelte-kit/**", "dist"]
+			"dependsOn": ["^build"]
 		},
 		"lint": {},
 		"check": {},
@@ -14,6 +13,7 @@
 			"persistent": true
 		},
 		"test:unit": {},
-		"compile": {}
+		"compile": {},
+		"kit:sync": {}
 	}
 }

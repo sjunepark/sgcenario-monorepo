@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { getLexicalComposerContext } from '@lexical-svelte/core';
-	import { TreeView } from '@lexical-svelte/core';
+	import { getLexicalComposerContext, TreeView } from '@lexical-svelte/core';
 
 	const [editor] = getLexicalComposerContext();
 </script>

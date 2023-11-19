@@ -20,7 +20,7 @@
 
 <LexicalComposer {initialConfig}>
 	<PlainTextPlugin>
-		<ContentEditable slot="contentEditable" class="w-[640px] h-[480px] ring-1" />
+		<ContentEditable slot="contentEditable" class="w-[640px] h-[160px] ring-1" />
 	</PlainTextPlugin>
 	<TreeViewPlugin />
 </LexicalComposer>

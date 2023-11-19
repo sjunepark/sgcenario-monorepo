@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "vite dev | pino-pretty -t 'UTC:yyyy-mm-dd HH:MM:ss.l o'",
 		"build": "vite build",
-		"preview": "vite preview",
-		"sync": "svelte-kit sync",
+		"kit:sync": "svelte-kit sync",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"db:generate": "drizzle-kit generate:pg",

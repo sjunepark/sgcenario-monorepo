@@ -1,8 +1,10 @@
 <script lang="ts">
-	import type { EditorState, LexicalCommand, LexicalEditor } from 'lexical';
+	import type { EditorState, LexicalEditor } from 'lexical';
 	import { COMMAND_PRIORITY_HIGH } from 'lexical';
 	import { generateContent } from '$lib/LexicalTreeView';
 	import { mergeRegister } from '@lexical/utils';
+	import { onDestroy, onMount } from 'svelte';
+	import { createLoggedCommands } from '$lib/LexicalTreeViewStores';
 
 	export let treeTypeButtonClassName: string;
 	export let timeTravelButtonClassName: string;
@@ -25,36 +27,44 @@
 	let showLimited = false;
 	let lastEditorStateRef: null | EditorState = null;
 
+	$: console.log(
+		{ timeTravelEnabled },
+		{ showExportDOM },
+		{ playingIndexRef },
+		{ treeElementRef },
+		{ inputRef },
+		{ isPlaying },
+		{ isLimited },
+		{ showLimited },
+		{ lastEditorStateRef },
+		{ totalEditorStates }
+	);
+
+	// Track registered commands and add listener to modify loggedCommands
 	const unregisterCommandListeners = new Set<() => void>();
-	let loggedCommands: ReadonlyArray<LexicalCommand<unknown> & { payload: unknown }> = [];
-	$: {
-		unregisterCommandListeners.forEach((unregister) => unregister());
+	const commandsLog = createLoggedCommands();
+	onMount(() => {
 		for (const [command] of editor._commands) {
+			console.log('Registering command: ', JSON.stringify(command));
 			unregisterCommandListeners.add(
 				editor.registerCommand(
 					command,
 					(payload) => {
-						const newLoggedCommands = [...loggedCommands];
-						newLoggedCommands.push({
-							payload,
-							type: command.type ? command.type : 'UNKNOWN'
-						});
-						if (newLoggedCommands.length > 10) {
-							newLoggedCommands.shift();
-						}
-						loggedCommands = newLoggedCommands;
+						commandsLog.add({ ...command, payload });
 						return false;
 					},
 					COMMAND_PRIORITY_HIGH
 				)
 			);
+			console.log('Registered command');
 		}
-	}
+	});
+	onDestroy(() => unregisterCommandListeners.forEach((unregister) => unregister()));
 
-	const commandsLog = loggedCommands;
 	let generateTree: (editorState: EditorState) => void;
 	$: generateTree = (editorState) => {
-		content = generateContent(editor, commandsLog, showExportDOM);
+		console.log('Running generateTree $ block');
+		content = generateContent(editor, $commandsLog, showExportDOM);
 
 		if (!timeTravelEnabled) {
 			timeStampedEditorStates = [...timeStampedEditorStates, [Date.now(), editorState]];
@@ -62,16 +72,16 @@
 	};
 
 	$: {
+		console.log('Running content = generateContent() $ block');
 		const editorState = editor.getEditorState();
 
 		if (!showLimited && editorState._nodeMap.size < 1000) {
-			content = generateContent(editor, commandsLog, showExportDOM);
+			content = generateContent(editor, $commandsLog, showExportDOM);
 		}
 	}
 
 	let mergedRegister = () => {};
-	$: {
-		mergedRegister();
+	onMount(() => {
 		mergedRegister = mergeRegister(
 			editor.registerUpdateListener(({ editorState }) => {
 				if (!showLimited && editorState._nodeMap.size > 1000) {
@@ -84,15 +94,18 @@
 				generateTree(editorState);
 			}),
 			editor.registerEditableListener(() => {
-				content = generateContent(editor, commandsLog, showExportDOM);
+				content = generateContent(editor, $commandsLog, showExportDOM);
 			})
 		);
-	}
+		console.log({ editor });
+	});
+	onDestroy(mergedRegister);
 
 	const totalEditorStates = timeStampedEditorStates.length;
 
 	let clearTimeoutId = () => {};
 	$: {
+		console.log('Running clearTimeoutId $ block');
 		clearTimeoutId();
 		if (isPlaying) {
 			let timeoutId: ReturnType<typeof setTimeout>;
@@ -132,6 +145,7 @@
 
 	let resetLexicalEditor: (() => void) | undefined;
 	$: {
+		console.log('Running __lexicalEditor $ block');
 		if (resetLexicalEditor) {
 			resetLexicalEditor();
 		}
@@ -152,6 +166,7 @@
 	}
 </script>
 
+<p>$commandsLog: {$commandsLog}</p>
 <div class={viewClassName}>
 	{#if !showLimited && isLimited}
 		<div style="padding: 1.25rem">
