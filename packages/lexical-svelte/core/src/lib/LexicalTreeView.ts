@@ -20,7 +20,6 @@ import {
 	$isElementNode,
 	$isRangeSelection,
 	$isTextNode,
-	COMMAND_PRIORITY_HIGH,
 	DEPRECATED_$isGridSelection,
 	type LexicalCommand
 } from 'lexical';
@@ -76,83 +75,6 @@ function printNodeSelection(selection: NodeSelection): string {
 
 function printGridSelection(selection: GridSelection): string {
 	return `: grid\n  └ { grid: ${selection.gridKey}, anchorCell: ${selection.anchor.key}, focusCell: ${selection.focus.key} }`;
-}
-
-function generateContent(
-	editor: LexicalEditor,
-	commandsLog: ReadonlyArray<LexicalCommand<unknown> & { payload: unknown }>,
-	exportDOM: boolean
-): string {
-	const editorState = editor.getEditorState();
-	const editorConfig = editor._config;
-	const compositionKey = editor._compositionKey;
-	const editable = editor._editable;
-
-	if (exportDOM) {
-		let htmlString = '';
-		editorState.read(() => {
-			htmlString = printPrettyHTML($generateHtmlFromNodes(editor));
-		});
-		return htmlString;
-	}
-
-	let res = ' root\n';
-
-	const selectionString = editorState.read(() => {
-		const selection = $getSelection();
-
-		visitTree($getRoot(), (node: LexicalNode, indent: Array<string>) => {
-			const nodeKey = node.getKey();
-			const nodeKeyDisplay = `(${nodeKey})`;
-			const typeDisplay = node.getType() || '';
-			const isSelected = node.isSelected();
-			const idsDisplay = $isMarkNode(node) ? ` id: [ ${node.getIDs().join(', ')} ] ` : '';
-
-			res += `${isSelected ? SYMBOLS.selectedLine : ' '} ${indent.join(
-				' '
-			)} ${nodeKeyDisplay} ${typeDisplay} ${idsDisplay} ${printNode(node)}\n`;
-
-			res += printSelectedCharsLine({
-				indent,
-				isSelected,
-				node,
-				nodeKeyDisplay,
-				selection,
-				typeDisplay
-			});
-		});
-
-		return selection === null
-			? ': null'
-			: $isRangeSelection(selection)
-			  ? printRangeSelection(selection)
-			  : DEPRECATED_$isGridSelection(selection)
-			    ? printGridSelection(selection)
-			    : printNodeSelection(selection);
-	});
-
-	res += '\n selection' + selectionString;
-
-	res += '\n\n commands:';
-
-	if (commandsLog.length) {
-		for (const { type, payload } of commandsLog) {
-			res += `\n  └ { type: ${type}, payload: ${
-				payload instanceof Event ? payload.constructor.name : payload
-			} }`;
-		}
-	} else {
-		res += '\n  └ None dispatched.';
-	}
-
-	res += '\n\n editor:';
-	res += `\n  └ namespace ${editorConfig.namespace}`;
-	if (compositionKey !== null) {
-		res += `\n  └ compositionKey ${compositionKey}`;
-	}
-	res += `\n  └ editable ${String(editable)}`;
-
-	return res;
 }
 
 function visitTree(
@@ -340,7 +262,7 @@ function printSelectedCharsLine({
 		return '';
 	}
 
-	const [start, end] = $getSelectionStartEnd(node, selection);
+	const [start, end] = _$getSelectionStartEnd(node, selection);
 
 	if (start === end) {
 		return '';
@@ -391,7 +313,7 @@ function prettifyHTML(node: Element, level: number) {
 	return node;
 }
 
-function $getSelectionStartEnd(
+function _$getSelectionStartEnd(
 	node: LexicalNode,
 	selection: RangeSelection | GridSelection
 ): [number, number] {
@@ -439,4 +361,81 @@ function $getSelectionStartEnd(
 		start + numNonSingleWidthCharBeforeSelection,
 		end + numNonSingleWidthCharBeforeSelection + numNonSingleWidthCharInSelection
 	];
+}
+
+export function generateContent(
+	editor: LexicalEditor,
+	commandsLog: ReadonlyArray<LexicalCommand<unknown> & { payload: unknown }>,
+	exportDOM: boolean
+): string {
+	const editorState = editor.getEditorState();
+	const editorConfig = editor._config;
+	const compositionKey = editor._compositionKey;
+	const editable = editor._editable;
+
+	if (exportDOM) {
+		let htmlString = '';
+		editorState.read(() => {
+			htmlString = printPrettyHTML($generateHtmlFromNodes(editor));
+		});
+		return htmlString;
+	}
+
+	let res = ' root\n';
+
+	const selectionString = editorState.read(() => {
+		const selection = $getSelection();
+
+		visitTree($getRoot(), (node: LexicalNode, indent: Array<string>) => {
+			const nodeKey = node.getKey();
+			const nodeKeyDisplay = `(${nodeKey})`;
+			const typeDisplay = node.getType() || '';
+			const isSelected = node.isSelected();
+			const idsDisplay = $isMarkNode(node) ? ` id: [ ${node.getIDs().join(', ')} ] ` : '';
+
+			res += `${isSelected ? SYMBOLS.selectedLine : ' '} ${indent.join(
+				' '
+			)} ${nodeKeyDisplay} ${typeDisplay} ${idsDisplay} ${printNode(node)}\n`;
+
+			res += printSelectedCharsLine({
+				indent,
+				isSelected,
+				node,
+				nodeKeyDisplay,
+				selection,
+				typeDisplay
+			});
+		});
+
+		return selection === null
+			? ': null'
+			: $isRangeSelection(selection)
+			  ? printRangeSelection(selection)
+			  : DEPRECATED_$isGridSelection(selection)
+			    ? printGridSelection(selection)
+			    : printNodeSelection(selection);
+	});
+
+	res += '\n selection' + selectionString;
+
+	res += '\n\n commands:';
+
+	if (commandsLog.length) {
+		for (const { type, payload } of commandsLog) {
+			res += `\n  └ { type: ${type}, payload: ${
+				payload instanceof Event ? payload.constructor.name : payload
+			} }`;
+		}
+	} else {
+		res += '\n  └ None dispatched.';
+	}
+
+	res += '\n\n editor:';
+	res += `\n  └ namespace ${editorConfig.namespace}`;
+	if (compositionKey !== null) {
+		res += `\n  └ compositionKey ${compositionKey}`;
+	}
+	res += `\n  └ editable ${String(editable)}`;
+
+	return res;
 }

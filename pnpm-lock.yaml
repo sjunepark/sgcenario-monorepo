@@ -234,6 +234,9 @@ importers:
       svelte-check:
         specifier: ^3.6.0
         version: 3.6.0(postcss@8.4.31)(svelte@4.2.5)
+      svelte-preprocess:
+        specifier: ^5.1.0
+        version: 5.1.0(postcss@8.4.31)(svelte@4.2.5)(typescript@5.2.2)
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -243,6 +246,9 @@ importers:
       vite:
         specifier: ^4.5.0
         version: 4.5.0(@types/node@20.9.1)
+      vite-node:
+        specifier: ^0.34.6
+        version: 0.34.6(@types/node@20.9.1)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(jsdom@22.1.0)
