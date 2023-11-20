@@ -27,25 +27,11 @@
 	let showLimited = false;
 	let lastEditorStateRef: null | EditorState = null;
 
-	$: console.log(
-		{ timeTravelEnabled },
-		{ showExportDOM },
-		{ playingIndexRef },
-		{ treeElementRef },
-		{ inputRef },
-		{ isPlaying },
-		{ isLimited },
-		{ showLimited },
-		{ lastEditorStateRef },
-		{ totalEditorStates }
-	);
-
 	// Track registered commands and add listener to modify loggedCommands
 	const unregisterCommandListeners = new Set<() => void>();
 	const commandsLog = createLoggedCommands();
 	onMount(() => {
 		for (const [command] of editor._commands) {
-			console.log('Registering command: ', JSON.stringify(command));
 			unregisterCommandListeners.add(
 				editor.registerCommand(
 					command,
@@ -56,14 +42,12 @@
 					COMMAND_PRIORITY_HIGH
 				)
 			);
-			console.log('Registered command');
 		}
 	});
 	onDestroy(() => unregisterCommandListeners.forEach((unregister) => unregister()));
 
 	let generateTree: (editorState: EditorState) => void;
 	$: generateTree = (editorState) => {
-		console.log('Running generateTree $ block');
 		content = generateContent(editor, $commandsLog, showExportDOM);
 
 		if (!timeTravelEnabled) {
@@ -72,7 +56,6 @@
 	};
 
 	$: {
-		console.log('Running content = generateContent() $ block');
 		const editorState = editor.getEditorState();
 
 		if (!showLimited && editorState._nodeMap.size < 1000) {
@@ -97,7 +80,6 @@
 				content = generateContent(editor, $commandsLog, showExportDOM);
 			})
 		);
-		console.log({ editor });
 	});
 	onDestroy(mergedRegister);
 
@@ -105,7 +87,6 @@
 
 	let clearTimeoutId = () => {};
 	$: {
-		console.log('Running clearTimeoutId $ block');
 		clearTimeoutId();
 		if (isPlaying) {
 			let timeoutId: ReturnType<typeof setTimeout>;
@@ -145,7 +126,6 @@
 
 	let resetLexicalEditor: (() => void) | undefined;
 	$: {
-		console.log('Running __lexicalEditor $ block');
 		if (resetLexicalEditor) {
 			resetLexicalEditor();
 		}
